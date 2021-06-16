@@ -4,13 +4,13 @@ import logoImage from '../../assets/logo.svg';
 import { Link } from 'react-router-dom';
 import { FiPower, FiEdit, FiTrash2 } from 'react-icons/fi';
 
-export default function Book() {
+export default function Books() {
     return (
-        <div className="book-container">
+        <div className="books-container">
             <header>
                 <img src={logoImage} alt="logo"/>
                 <span>Welcome, <strong>Fulano</strong>!</span>
-                <Link className="button" to="book/new">Add new book</Link>
+                <Link className="button" to="books/new">Add new book</Link>
                 <button type="button">
                     <FiPower size={18} color="#251FC5"></FiPower>
                 </button>
