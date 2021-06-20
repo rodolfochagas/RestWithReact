@@ -55,12 +55,20 @@ export default function Books() {
         }
     }
 
+    function editBook(id) {
+        try {
+            history.push(`/book/new/${id}`);
+        } catch (error) {
+            alert("Edit failed! Please try again.");
+        }
+    }
+
     return (
         <div className="books-container">
             <header>
                 <img src={logoImage} alt="logo"/>
                 <span>Welcome, <strong>{userName}</strong>!</span>
-                <Link className="button" to="book/new">Add new book</Link>
+                <Link className="button" to="book/new/0">Add new book</Link>
                 <button type="button">
                     <FiPower size={18} color="#251FC5" onClick={logout}></FiPower>
                 </button>
@@ -81,7 +89,7 @@ export default function Books() {
                             <p>{Intl.DateTimeFormat('pt-BR').format(new Date(book.launchDate))}</p>
 
                             <button type="button">
-                                <FiEdit size={20} color="#251FC5"></FiEdit>
+                                <FiEdit size={20} color="#251FC5" onClick={() => editBook(book.id)}></FiEdit>
                             </button>
 
                             <button type="button" onClick={() => deleteBook(book.id)}>
